@@ -2,7 +2,7 @@ package com.app.seminar.courseOfferService.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -45,7 +45,7 @@ public class CourseServiceController {
 	
 	@GetMapping(value = "/course/all")
 	public List<Course> getAll() {
-		return service.getAllCourses();
+		return service.getAllCourses().stream().distinct().collect(Collectors.toList());
 	}
 	
 }

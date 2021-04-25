@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "65af0fdb-089e-4269-ab65-3342e9de3b50",
+		"name": "spring-student-service",
+		"description": "This contains rest services exposed as part of microservice  - spring-user-microservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getStudents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/student/Krishna",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"Krishna"
+					]
+				},
+				"description": "get student details by student name"
+			},
+			"response": []
+		},
+		{
+			"name": "saveStudent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\"name\":\"Sachin\", \"location\":\"Maharashtra\", \"email\": \"acs@gmail.com\",\"mobile\":\"8888888888\", \"courseName\":\"Java\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/student",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student"
+					]
+				},
+				"description": "request to save student registration."
+			},
+			"response": []
+		},
+		{
+			"name": "GetOffersOfTheDay",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/student/offerOfTheDay?courseName=java&location=maharashtra",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"offerOfTheDay"
+					],
+					"query": [
+						{
+							"key": "courseName",
+							"value": "java",
+							"description": "Optional, can have comma separated values"
+						},
+						{
+							"key": "location",
+							"value": "maharashtra",
+							"description": "mandatoryparameter, with location value as a state"
+						}
+					]
+				},
+				"description": "This service fetches all courses from todays registrations, filters them out based on course names from request param, reads state, and gets all offers from that day. It internally calls spring-course-offer microservice"
+			},
+			"response": []
+		}
+	]
+}

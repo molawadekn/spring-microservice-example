@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "e63dad68-0051-4a10-96c4-9ed4707c92ee",
+		"name": "spring-course-offer-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllCourses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/course/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"course",
+						"all"
+					]
+				},
+				"description": "get all course offers"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/offer?courseName=java&location=maharashtra",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"offer"
+					],
+					"query": [
+						{
+							"key": "courseName",
+							"value": "java",
+							"description": "accepts comma separated values"
+						},
+						{
+							"key": "location",
+							"value": "maharashtra"
+						}
+					]
+				},
+				"description": "get offers filtered by course and location"
+			},
+			"response": []
+		}
+	]
+}
