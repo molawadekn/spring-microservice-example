@@ -21,8 +21,8 @@ public class Student {
 	private String location;
 	private String mobile;
 	private String courseName;
-	@JsonIgnore
 	private Date created;
+	@JsonIgnore
 	private Date updated;
 	
 	
@@ -57,6 +57,12 @@ public class Student {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
+	public String getCourseName() {
+		return courseName;
+	}
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
 	public Date getCreated() {
 		return created;
 	}
@@ -71,21 +77,6 @@ public class Student {
 	}
 	
 	
-	/**
-	 * @return the courseName
-	 */
-	public String getCourseName() {
-		return courseName;
-	}
-	/**
-	 * @param courseName the courseName to set
-	 */
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
-	}
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -115,6 +106,11 @@ public class Student {
 			builder.append(mobile);
 			builder.append(", ");
 		}
+		if (courseName != null) {
+			builder.append("courseName=");
+			builder.append(courseName);
+			builder.append(", ");
+		}
 		if (created != null) {
 			builder.append("created=");
 			builder.append(created);
@@ -127,6 +123,7 @@ public class Student {
 		builder.append("]");
 		return builder.toString();
 	}
+	
 
 	
 	

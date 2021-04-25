@@ -11,7 +11,8 @@ import com.app.seminar.studentService.domain.Student;
 @Repository
 public interface StudentRepository extends CrudRepository<Student, Long> {
 
-  List<Student> findByName(String name);
+  List<Student> findByNameIgnoreCase(String name);
+  
   
   @Query("SELECT c FROM Student c WHERE c.created > :yesterday")
   List<Student> findAllCoursesFromTodaysRegistration(Date yesterday);

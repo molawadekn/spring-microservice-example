@@ -33,11 +33,11 @@ public class CourseServiceController {
 		List<Course> courseList=new ArrayList<>();
 		
 		if(StringUtils.hasText(courseName) && StringUtils.hasText(state)) {
-			courseList = service.getOffers(helper.toList(courseName), state);
+			courseList = service.getOffers(helper.toList(courseName.toUpperCase()), state.toUpperCase());
 		}else if(StringUtils.hasText(courseName)) {
-			courseList = service.getOffersByCourseName(helper.toList(courseName));
+			courseList = service.getOffersByCourseName(helper.toList(courseName.toUpperCase()));
 		}else if(StringUtils.hasText(state)) {
-			courseList = service.getOffersByState(state);
+			courseList = service.getOffersByState(state.toUpperCase());
 		}
 		log.info(courseList);
 		return courseList ;

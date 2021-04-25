@@ -1,7 +1,10 @@
 package com.app.seminar.studentService.controller;
 
 import java.net.URI;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -47,23 +50,26 @@ public class StudentServiceController {
 	}
 
 	@RequestMapping(value = "/student", method = RequestMethod.POST)
-	@PostMapping(value = "/student", consumes = { MediaType.APPLICATION_JSON_VALUE,
-			MediaType.APPLICATION_XML_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE,
-					MediaType.APPLICATION_XML_VALUE })
+	@PostMapping(value = "/student", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
+			MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Student> postBody(@RequestBody Student stu) {
+		stu.setCreated(new Date());
 		Student persistedStudent = service.saveStudent(stu);
+		log.info(persistedStudent);
+
 		return ResponseEntity.created(URI.create(String.format("/student/%s", persistedStudent.getName())))
 				.body(persistedStudent);
 	}
 
 	@GetMapping(value = "/student/offerOfTheDay")
-	public String getOffersOfTheDay(@RequestParam(name = "courseName", required = true) String courseNames,
+	public String getOffersOfTheDay(@RequestParam(name = "courseName", required = false) String courseNames,
 			@RequestParam(name = "location", required = true) String state) {
 		log.info("Getting offerOfTheDay");
 		String response = null;
-		if (StringUtils.hasText(courseNames) && StringUtils.hasText(state)) {
+		if ( StringUtils.hasText(state)) {
 			response = service.getOffers(courseNames, state);
 		}
+		log.info(response);
 		return response;
 	}
 }

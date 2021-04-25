@@ -27,7 +27,7 @@ public class StudentServiceApplication {
 			// save a few Students
 			Student std = new Student();
 			std.setMobile("8888888888");
-			std.setLocation("MAHARASHTRA");
+			std.setLocation("Maharashtra");
 			std.setName("Krishna");
 			std.setCourseName("Java");
 			std.setCreated(new Date());
@@ -35,7 +35,7 @@ public class StudentServiceApplication {
 
 			std = new Student();
 			std.setMobile("9888888888");
-			std.setLocation("KARNATAKA");
+			std.setLocation("Karnataka");
 			std.setName("Rama");
 			std.setCourseName("Java");
 			std.setCreated(new Date());
@@ -43,7 +43,7 @@ public class StudentServiceApplication {
 
 			std = new Student();
 			std.setMobile("9888888888");
-			std.setLocation("KARNATAKA");
+			std.setLocation("Karnataka");
 			std.setName("IOT");
 			std.setCourseName("Java");
 			std.setCreated(new Date());
@@ -51,7 +51,7 @@ public class StudentServiceApplication {
 
 			std = new Student();
 			std.setMobile("9888888888");
-			std.setLocation("KARNATAKA");
+			std.setLocation("Karnataka");
 			std.setName("Rama");
 			std.setCourseName("Spring");
 			std.setCreated(new Date());
@@ -59,7 +59,7 @@ public class StudentServiceApplication {
 
 			std = new Student();
 			std.setMobile("9888888888");
-			std.setLocation("KARNATAKA");
+			std.setLocation("Karnataka");
 			std.setName("Rama");
 			std.setCourseName("Hibernet");
 			std.setCreated(new Date());
@@ -82,7 +82,7 @@ public class StudentServiceApplication {
 			// fetch Students by last name
 			log.info("Student found with findByLastName:");
 			log.info("--------------------------------------------");
-			repository.findByName("Krishna").forEach(s -> {
+			repository.findByNameIgnoreCase("Krishna").forEach(s -> {
 				log.info(s.toString());
 			});
 		};

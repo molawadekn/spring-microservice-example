@@ -11,15 +11,15 @@ import com.app.seminar.courseOfferService.domain.Course;
 @Repository
 public interface CourseRepository extends CrudRepository<Course, Long> {
 
-  List<Course> findByName(String name);
+  List<Course> findByNameIgnoreCase(String name);
 
-  List<Course> findByNameAndLocation(String courseName, String state);
+  List<Course> findByNameAndLocationIgnoreCase(String courseName, String state);
 
-  List<Course> findByLocation(String state);
+  List<Course> findByLocationIgnoreCase(String state);
   
-  @Query(value = "SELECT c FROM Course c WHERE c.name IN :names")
+  @Query(value = "SELECT c FROM Course c WHERE upper(c.name) IN :names")
   List<Course> findCourseByNameList(@Param("names") List<String> names);
   
-  @Query(value = "SELECT c FROM Course c WHERE c.name IN :names AND c.location = :location")
+  @Query(value = "SELECT c FROM Course c WHERE upper(c.name) IN :names AND upper(c.location)= :location")
   List<Course> findCourseByNameListAndCourse(@Param("names") List<String> names, @Param("location") String location );
 }

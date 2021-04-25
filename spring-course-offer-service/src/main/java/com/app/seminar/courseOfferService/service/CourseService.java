@@ -16,7 +16,7 @@ public class CourseService {
 	CourseRepository repository;
 
 	public List<Course> getStudentByName(String name) {
-		return repository.findByName(name);
+		return repository.findByNameIgnoreCase(name);
 	}
 
 	public Course getStudentById(Long id) {
@@ -39,7 +39,7 @@ public class CourseService {
 	}
 
 	public List<Course> getOffersByState(String state) {
-		return repository.findByLocation(state);
+		return repository.findByLocationIgnoreCase(state);
 
 	}
 

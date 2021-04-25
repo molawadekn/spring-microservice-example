@@ -74,7 +74,7 @@ public class CourseOfferServiceApplication {
 	      // fetch Students by last name
 	      log.info("Student found with findByLastName('Bauer'):");
 	      log.info("--------------------------------------------");
-	      repository.findByName("Java").forEach(s -> {
+	      repository.findByNameIgnoreCase("JAVA").forEach(s -> {
 	        log.info(s.toString());
 	      });
 	      // for (Student bauer : repository.findByLastName("Bauer")) {
