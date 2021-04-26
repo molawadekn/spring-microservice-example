@@ -1,4 +1,4 @@
-package com.app.seminar.studentService;
+package com.app.seminar.courseOfferService;
 
 
 import org.junit.Test;
@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class StudentServiceApplicationTests {
+public class CourseServiceApplicationTests {
 
 	@Test
 	public void contextLoads() {

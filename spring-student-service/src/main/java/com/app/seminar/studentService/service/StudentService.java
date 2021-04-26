@@ -38,7 +38,7 @@ public class StudentService {
 	public String getOffers(String courseNames, String state) {
 		// get all courses from student data which got registered today
 		LocalDate yesterday = LocalDate.now().minusDays(1L);
-		List<Student> registrations = registrations = repository.findAllCoursesFromTodaysRegistration(
+		List<Student> registrations = repository.findAllCoursesFromTodaysRegistration(
 				Date.from(yesterday.atStartOfDay(ZoneId.systemDefault()).toInstant()));
 		String commaSeparatedCourses = "";
 		if (StringUtils.hasText(courseNames)) {

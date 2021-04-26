@@ -1,8 +1,6 @@
 package com.app.seminar.studentService.controller;
 
 import java.net.URI;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
